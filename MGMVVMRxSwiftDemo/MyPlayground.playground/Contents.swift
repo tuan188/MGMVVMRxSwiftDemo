@@ -16,13 +16,37 @@ print("==== Start ====")
 
 let disposeBag = DisposeBag()
 
-let source = Observable.of(1, 3, 5, 7, 9)
-
-let observable = source.scan((0,0)) { acc, current -> (Int, Int) in
-    return (current, acc.1 + current)
+struct Student {
+    var score: Variable<Int>
 }
 
-observable
-    .subscribe(onNext: { (origin, sum) in
-    print(origin, sum)
-}).disposed(by: disposeBag)
+var score = Variable<Int>(1)
+var score2 = Variable<Int>(2)
+
+// 1
+let ryan = Student(score: Variable(80))
+let charlotte = Student(score: Variable(90))
+// 2
+let student = PublishSubject<Student>()
+// 3
+student.asObservable()
+    .flatMap {
+        $0.score.asObservable()
+    }
+    // 4
+    .subscribe(onNext: {
+        print($0)
+    })
+    .addDisposableTo(disposeBag)
+
+student.onNext(ryan)
+ryan.score.value = 85
+
+Observable
+    .combineLatest(score.asObservable(), score2.asObservable())
+    .subscribe( onNext: { s1, s2 in
+        print(s1, s2)
+    })
+
+score.value = 3
+

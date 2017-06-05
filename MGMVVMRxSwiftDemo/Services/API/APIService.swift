@@ -12,34 +12,43 @@ import Alamofire
 import RxSwift
 import ObjectMapper
 
-struct URLs {
-    static let repoList = "https://api.github.com/search/repositories?q=language:swift&per_page=10"
-//    static let repoList = "https://api.github.com/search/repo"
-    static let eventList = "https://api.github.com/repos/%@/events?per_page=5"
-}
-
 enum APIError: Error {
     case invalidData(Any)
 }
 
 class APIService {
     
-    private func request<T: Mappable>(_ input: APIInput) -> Observable<T> {
+    private func _request(_ input: APIInput) -> Observable<Any> {
         let manager = SessionManager.default
         return manager.rx
-            .json(input.requestType, input.urlString)
-            .observeOn(MainScheduler.instance)
+            .request(input.requestType, input.urlString, parameters: input.parameters, encoding: input.encoding, headers: input.headers)
+            .flatMap {
+                $0
+                    .validate(statusCode: 200 ..< 300)
+                    .rx.json()
+        }
+    }
+    
+    func request<T: Mappable>(_ input: APIInput) -> Observable<T> {
+        return _request(input)
             .map { data -> T in
                 if let json = data as? [String:Any],
-                    let repo = T(JSON: json) {
-                    return repo
+                    let item = T(JSON: json) {
+                    return item
                 } else {
                     throw APIError.invalidData(data)
                 }
             }
     }
-
-    func repoList(input: RepoListInput) -> Observable<RepoListOutput> {
-        return self.request(input)
+    
+    func requestArray<T: Mappable>(_ input: APIInput) -> Observable<[T]> {
+        return _request(input)
+            .map { data -> [T] in
+                if let jsonArray = data as? [[String:Any]] {
+                    return Mapper<T>().mapArray(JSONArray: jsonArray)
+                } else {
+                    throw APIError.invalidData(data)
+                }
+        }
     }
 }

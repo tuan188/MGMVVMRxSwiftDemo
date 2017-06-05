@@ -14,21 +14,27 @@ class RepoListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    let service = APIService()
+    let service = RepoService()
     let bag = DisposeBag()
     
-    var repoList = [Repo]()
+    var repoList = Variable<[Repo]>([])
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.register(UINib(nibName: RepoCell.cellIdentifier, bundle: nil),
                            forCellReuseIdentifier: RepoCell.cellIdentifier)
+        
+        repoList.asObservable()
+            .subscribe ( onNext: { [weak self] repoList in
+                self?.tableView.reloadData()
+            })
+            .disposed(by: bag)
+        
 
         service.repoList(input: RepoListInput())
             .subscribe(onNext: { [weak self] (output) in
-                self?.repoList = output.repositories ?? []
-                self?.tableView.reloadData()
+                self?.repoList.value = output.repositories ?? []
             }, onError: { (error) in
                 print(error)
             })
@@ -44,7 +50,7 @@ extension RepoListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return repoList.count
+        return repoList.value.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -55,7 +61,7 @@ extension RepoListViewController: UITableViewDataSource {
     
     private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
         if let cell = cell as? RepoCell {
-            cell.repo = repoList[indexPath.row]
+            cell.repo = repoList.value[indexPath.row]
         }
     }
 }
