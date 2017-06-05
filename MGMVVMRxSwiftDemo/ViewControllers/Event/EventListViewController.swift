@@ -15,9 +15,15 @@ class EventListViewController: UIViewController {
     
     let bag = DisposeBag()
     var eventList = Variable<[Event]>([])
+    var repo: Variable<Repo>!
+    
+    let repoService = RepoService()
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: EventCell.cellIdentifier, bundle: nil),
+                           forCellReuseIdentifier: EventCell.cellIdentifier)
         
         eventList
             .asObservable()
@@ -26,9 +32,21 @@ class EventListViewController: UIViewController {
             })
             .disposed(by: bag)
 
-        
-        
+        repo
+            .asObservable()
+            .filter { $0.fullname != nil && !$0.fullname!.isEmpty }
+            .flatMap({ (repo) -> Observable<EventListOutput> in
+                return self.repoService.eventList(input: EventListInput(repoFullName: repo.fullname!))
+            })
+            .subscribe(onNext: { [weak self] (output) in
+                self?.eventList.value = output.events
+            }, onError: { (error) in
+                print(error)
+            })
+            .disposed(by: bag)
     }
+    
+    
 }
 
 // MARK: - UITableViewDataSource
@@ -42,7 +60,15 @@ extension EventListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.cellIdentifier, for: indexPath)
+        config(cell, at: indexPath)
+        return cell
+    }
+    
+    private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? EventCell {
+            cell.event.value = eventList.value[indexPath.row]
+        }
     }
 }
 

@@ -21,6 +21,8 @@
 		BC49DE7B1EE5526500BF7616 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49DE7A1EE5526500BF7616 /* Event.swift */; };
 		BC49DE7D1EE5530700BF7616 /* EventList.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49DE7C1EE5530700BF7616 /* EventList.swift */; };
 		BC49DE801EE55CC300BF7616 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49DE7F1EE55CC300BF7616 /* EventListViewController.swift */; };
+		BC49DE851EE5738900BF7616 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49DE831EE5738900BF7616 /* EventCell.swift */; };
+		BC49DE861EE5738900BF7616 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC49DE841EE5738900BF7616 /* EventCell.xib */; };
 		BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC361EE3C86800E3BD7A /* APIService.swift */; };
 		BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */; };
@@ -47,6 +49,8 @@
 		BC49DE7A1EE5526500BF7616 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		BC49DE7C1EE5530700BF7616 /* EventList.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventList.swift; sourceTree = "<group>"; };
 		BC49DE7F1EE55CC300BF7616 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
+		BC49DE831EE5738900BF7616 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
+		BC49DE841EE5738900BF7616 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		BCBCCC361EE3C86800E3BD7A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BCBCCC391EE3D02700E3BD7A /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
@@ -150,6 +154,8 @@
 			isa = PBXGroup;
 			children = (
 				BC49DE7F1EE55CC300BF7616 /* EventListViewController.swift */,
+				BC49DE831EE5738900BF7616 /* EventCell.swift */,
+				BC49DE841EE5738900BF7616 /* EventCell.xib */,
 			);
 			path = Event;
 			sourceTree = "<group>";
@@ -248,6 +254,7 @@
 				BC276F151EDBAAB0007B1375 /* LaunchScreen.storyboard in Resources */,
 				BC276F121EDBAAB0007B1375 /* Assets.xcassets in Resources */,
 				BC276F101EDBAAB0007B1375 /* Main.storyboard in Resources */,
+				BC49DE861EE5738900BF7616 /* EventCell.xib in Resources */,
 				BC49DE701EE50B1900BF7616 /* RepoCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -313,6 +320,7 @@
 				BC49DE761EE551E900BF7616 /* RepoList.swift in Sources */,
 				BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */,
 				BC49DE791EE5521600BF7616 /* URLs.swift in Sources */,
+				BC49DE851EE5738900BF7616 /* EventCell.swift in Sources */,
 				BC276F0B1EDBAAB0007B1375 /* AppDelegate.swift in Sources */,
 				BC49DE6F1EE50B1900BF7616 /* RepoCell.swift in Sources */,
 				BCBCCC421EE4ED0E00E3BD7A /* APIOutput.swift in Sources */,

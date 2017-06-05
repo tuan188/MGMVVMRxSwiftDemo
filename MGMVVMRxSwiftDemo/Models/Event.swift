@@ -21,6 +21,6 @@ struct Event: Mappable {
     mutating func mapping(map: Map) {
         id <- map["id"]
         type <- map["type"]
-        avatarURLString <- map["avatar_url"]
+        avatarURLString <- map["actor.avatar_url"]
     }
 }

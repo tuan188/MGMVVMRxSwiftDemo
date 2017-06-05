@@ -17,7 +17,7 @@ class RepoCell: UITableViewCell {
     @IBOutlet var avatarImageView: UIImageView!
     
     static var cellIdentifier: String {
-        return String(describing: RepoCell.self)
+        return String(describing: self)
     }
     
     var repo: Repo! {

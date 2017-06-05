@@ -14,7 +14,7 @@ class RepoListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    let service = RepoService()
+    let repoService = RepoService()
     let bag = DisposeBag()
     
     var repoList = Variable<[Repo]>([])
@@ -32,13 +32,22 @@ class RepoListViewController: UIViewController {
             .disposed(by: bag)
         
 
-        service.repoList(input: RepoListInput())
+        repoService.repoList(input: RepoListInput())
             .subscribe(onNext: { [weak self] (output) in
                 self?.repoList.value = output.repositories ?? []
             }, onError: { (error) in
                 print(error)
             })
             .disposed(by: bag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "showEventList" {
+            if let controller = segue.destination as? EventListViewController,
+                let repo = sender as? Repo {
+                controller.repo = Variable(repo)
+            }
+        }
     }
 
 }
@@ -70,6 +79,11 @@ extension RepoListViewController: UITableViewDataSource {
 extension RepoListViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 92
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let repo = repoList.value[indexPath.row]
+        self.performSegue(withIdentifier: "showEventList", sender: repo)
     }
 }
 
