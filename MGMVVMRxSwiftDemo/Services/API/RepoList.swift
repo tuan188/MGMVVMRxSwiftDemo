@@ -1,0 +1,31 @@
+//
+//  RepoList.swift
+//  MGMVVMRxSwiftDemo
+//
+//  Created by Tuan Truong on 6/5/17.
+//  Copyright © 2017 Tuan Truong. All rights reserved.
+//
+
+import UIKit
+import ObjectMapper
+
+class RepoListInput: APIInput {
+    init() {
+        super.init(urlString: URL.repoList,
+                   parameters: nil,
+                   requestType: .get)
+    }
+}
+
+class RepoListOutput: APIOutput, Mappable {
+    
+    var repositories: [Repo]?
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        repositories <- map["items"]
+    }
+}
