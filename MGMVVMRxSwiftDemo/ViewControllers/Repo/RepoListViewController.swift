@@ -21,6 +21,9 @@ class RepoListViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        tableView.register(UINib(nibName: RepoCell.cellIdentifier, bundle: nil),
+                           forCellReuseIdentifier: RepoCell.cellIdentifier)
 
         service.repoList(input: RepoListInput())
             .subscribe(onNext: { [weak self] (output) in
@@ -45,13 +48,23 @@ extension RepoListViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        return UITableViewCell()
+        let cell = tableView.dequeueReusableCell(withIdentifier: RepoCell.cellIdentifier, for: indexPath)
+        config(cell, at: indexPath)
+        return cell
+    }
+    
+    private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? RepoCell {
+            cell.repo = repoList[indexPath.row]
+        }
     }
 }
 
 // MARK: - UITableViewDelegate
 extension RepoListViewController: UITableViewDelegate {
-    
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 92
+    }
 }
 
 

@@ -11,7 +11,7 @@ import ObjectMapper
 
 class RepoListInput: APIInput {
     init() {
-        super.init(urlString: URL.repoList,
+        super.init(urlString: URLs.repoList,
                    parameters: nil,
                    requestType: .get)
     }
