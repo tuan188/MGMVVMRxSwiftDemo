@@ -22,7 +22,11 @@ class APIService {
         return Observable
             .just(input.urlString)
             .map { (urlString) -> URL in
-                if let url = URL(string: urlString) {
+                if var url = URL(string: urlString) {
+                    if input.encoding == .url,
+                    let parameters = input.parameters as? [String:String]  {
+                        url = url.appendingQueryParameters(parameters)
+                    }
                     return url
                 }
                 throw APIError.invalidURL(url: urlString)
@@ -70,3 +74,4 @@ class APIService {
         }
     }
 }
+

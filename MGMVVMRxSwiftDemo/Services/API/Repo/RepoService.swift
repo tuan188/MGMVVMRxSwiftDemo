@@ -13,6 +13,7 @@ class RepoService: APIService {
     func repoList(input: RepoListInput) -> Observable<RepoListOutput> {
         return self.request(input)
             .observeOn(MainScheduler.instance)
+            .shareReplay(1)
     }
     
     func eventList(input: EventListInput) -> Observable<EventListOutput> {
@@ -21,5 +22,6 @@ class RepoService: APIService {
             .map { events -> EventListOutput in
                 return EventListOutput(events: events)
             }
+            .shareReplay(1)
     }
 }

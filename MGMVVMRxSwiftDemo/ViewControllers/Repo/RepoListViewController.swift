@@ -15,13 +15,14 @@ class RepoListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var refreshButton: UIBarButtonItem!
+    var refreshControl: UIRefreshControl!
     
     let repoService = RepoService()
     let bag = DisposeBag()
     
     var repoList = Variable<[Repo]>([])
     
-    var loadDataAction: Action<Void, RepoListOutput>!
+    var loadDataAction: Action<String, RepoListOutput>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +36,8 @@ class RepoListViewController: UIViewController {
             })
             .disposed(by: bag)
         
-        loadDataAction = Action { [weak self] in
+        loadDataAction = Action { [weak self] sender in
+            print(sender)
             guard let strongSelf = self else { return Observable.just(RepoListOutput()) }
             return strongSelf.repoService.repoList(input: RepoListInput())
         }
@@ -44,8 +46,7 @@ class RepoListViewController: UIViewController {
             .elements
             .subscribe(onNext: { [weak self](output) in
                 self?.repoList.value = output.repositories ?? []
-            }, onError: { (error) in
-                print("1)", error)
+                self?.refreshControl.endRefreshing()
             })
             .disposed(by: bag)
         
@@ -57,17 +58,17 @@ class RepoListViewController: UIViewController {
             .disposed(by: bag)
         
         refreshButton.rx
-            .bind(to: loadDataAction) { _ in }
+            .bind(to: loadDataAction) { _ in return "Refresh button" }
         
-        loadDataAction.execute()
-
-//        repoService.repoList(input: RepoListInput())
-//            .subscribe(onNext: { [weak self] (output) in
-//                self?.repoList.value = output.repositories ?? []
-//            }, onError: { (error) in
-//                print(error)
-//            })
-//            .disposed(by: bag)
+        loadDataAction.execute("First load")
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.rx
+            .bind(to: loadDataAction, controlEvent: refreshControl.rx.controlEvent(.valueChanged)) { _ in
+                return "Refresh button"
+        }
+        tableView.addSubview(refreshControl)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

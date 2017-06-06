@@ -23,6 +23,7 @@
 		BC49DE851EE5738900BF7616 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49DE831EE5738900BF7616 /* EventCell.swift */; };
 		BC49DE861EE5738900BF7616 /* EventCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BC49DE841EE5738900BF7616 /* EventCell.xib */; };
 		BCABC3771EE68E9100AF5B55 /* URLs.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCABC3761EE68E9100AF5B55 /* URLs.swift */; };
+		BCABC3791EE699EE00AF5B55 /* APIExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCABC3781EE699EE00AF5B55 /* APIExtensions.swift */; };
 		BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC361EE3C86800E3BD7A /* APIService.swift */; };
 		BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */; };
@@ -51,6 +52,7 @@
 		BC49DE831EE5738900BF7616 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		BC49DE841EE5738900BF7616 /* EventCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EventCell.xib; sourceTree = "<group>"; };
 		BCABC3761EE68E9100AF5B55 /* URLs.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = URLs.swift; sourceTree = "<group>"; };
+		BCABC3781EE699EE00AF5B55 /* APIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIExtensions.swift; sourceTree = "<group>"; };
 		BCBCCC361EE3C86800E3BD7A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BCBCCC391EE3D02700E3BD7A /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			children = (
 				BC49DE731EE551E900BF7616 /* Repo */,
 				BCBCCC361EE3C86800E3BD7A /* APIService.swift */,
+				BCABC3781EE699EE00AF5B55 /* APIExtensions.swift */,
 				BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */,
 				BCBCCC411EE4ED0E00E3BD7A /* APIOutput.swift */,
 				BCABC3761EE68E9100AF5B55 /* URLs.swift */,
@@ -317,6 +320,7 @@
 				BC49DE7D1EE5530700BF7616 /* EventList.swift in Sources */,
 				BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */,
 				BC49DE7B1EE5526500BF7616 /* Event.swift in Sources */,
+				BCABC3791EE699EE00AF5B55 /* APIExtensions.swift in Sources */,
 				BCABC3771EE68E9100AF5B55 /* URLs.swift in Sources */,
 				BC49DE761EE551E900BF7616 /* RepoList.swift in Sources */,
 				BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */,
