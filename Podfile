@@ -11,4 +11,5 @@ target 'MGMVVMRxSwiftDemo' do
   pod 'RxAlamofire', '~> 3.0'
   pod 'ObjectMapper', '~> 2.2'
   pod 'Kingfisher', '~> 3.10'
+  pod 'Action'
 end

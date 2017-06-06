@@ -1,4 +1,7 @@
 PODS:
+  - Action (3.1.1):
+    - RxCocoa (~> 3.4)
+    - RxSwift (~> 3.4)
   - Alamofire (4.4.0)
   - Kingfisher (3.10.1)
   - ObjectMapper (2.2.7)
@@ -12,6 +15,7 @@ PODS:
   - RxSwift (3.4.1)
 
 DEPENDENCIES:
+  - Action
   - Kingfisher (~> 3.10)
   - ObjectMapper (~> 2.2)
   - RxAlamofire (~> 3.0)
@@ -19,6 +23,7 @@ DEPENDENCIES:
   - RxSwift (~> 3.4)
 
 SPEC CHECKSUMS:
+  Action: e224bd151fe2e057f4189b4a9df0dc5d21264a9e
   Alamofire: dc44b1600b800eb63da6a19039a0083d62a6a62d
   Kingfisher: 33a1b82140fcb14a9fc13f78dfde2a03ff8de8cb
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
@@ -26,6 +31,6 @@ SPEC CHECKSUMS:
   RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
   RxSwift: 656f8fbeca5bc372121a72d9ebdd3cd3bc0ffade
 
-PODFILE CHECKSUM: 7776d864e631d9dd50ad12d6e2e3244665fab560
+PODFILE CHECKSUM: 3276e34971c0e3c4481a3307377e29e1ec1af5d1
 
 COCOAPODS: 1.2.1

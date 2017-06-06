@@ -9,6 +9,7 @@
 import UIKit
 import RxAlamofire
 import RxSwift
+import RxCocoa
 
 class RepoListViewController: UIViewController {
     

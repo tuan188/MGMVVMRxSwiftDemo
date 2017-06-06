@@ -8,6 +8,7 @@
 
 import UIKit
 import RxSwift
+import RxCocoa
 
 class EventListViewController: UIViewController {
 
@@ -27,8 +28,29 @@ class EventListViewController: UIViewController {
         
         eventList
             .asObservable()
-            .subscribe(onNext: { [weak self] _ in
-                self?.tableView.reloadData()
+            .bind(to: tableView.rx.items) { [weak self] tableView, index, event in
+                let indexPath = IndexPath(item: index, section: 0)
+                let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.cellIdentifier, for: indexPath)
+                self?.config(cell, at: indexPath)
+                return cell
+            }
+            .disposed(by: bag)
+        
+        tableView.rx
+            .modelSelected(Event.self)
+            .filter { $0.type != nil }
+            .subscribe(onNext: { [weak self](event) in
+                let alertController = UIAlertController(title: nil, message: event.type! + " was selected", preferredStyle: .alert)
+                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+                
+                self?.present(alertController, animated: true, completion: nil)
+            })
+            .disposed(by: bag)
+        
+        repo
+            .asObservable()
+            .subscribe(onNext: { [weak self](repo) in
+                self?.title = repo.name
             })
             .disposed(by: bag)
 
@@ -46,33 +68,10 @@ class EventListViewController: UIViewController {
             .disposed(by: bag)
     }
     
-    
-}
-
-// MARK: - UITableViewDataSource
-extension EventListViewController: UITableViewDataSource {
-    func numberOfSections(in tableView: UITableView) -> Int {
-        return 1
-    }
-    
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return eventList.value.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.cellIdentifier, for: indexPath)
-        config(cell, at: indexPath)
-        return cell
-    }
-    
     private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
         if let cell = cell as? EventCell {
             cell.event.value = eventList.value[indexPath.row]
         }
     }
-}
-
-// MARK: - UITableViewDelegate
-extension EventListViewController: UITableViewDelegate {
     
 }
