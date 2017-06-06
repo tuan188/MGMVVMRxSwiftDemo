@@ -38,8 +38,11 @@
                             <constraint firstAttribute="trailing" secondItem="wvc-s5-NvC" secondAttribute="trailing" id="wGq-DP-sUf"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Repo List" id="eGf-wD-9QJ"/>
+                    <navigationItem key="navigationItem" title="Repo List" id="eGf-wD-9QJ">
+                        <barButtonItem key="rightBarButtonItem" systemItem="refresh" id="b6A-mn-cfD"/>
+                    </navigationItem>
                     <connections>
+                        <outlet property="refreshButton" destination="b6A-mn-cfD" id="hOC-o0-B4E"/>
                         <outlet property="tableView" destination="wvc-s5-NvC" id="Lx1-ND-nvL"/>
                         <segue destination="ETo-7F-CB0" kind="show" identifier="showEventList" id="7q7-el-9sO"/>
                     </connections>

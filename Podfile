@@ -8,7 +8,6 @@ target 'MGMVVMRxSwiftDemo' do
   # Pods for MGMVVMRxSwiftDemo
   pod 'RxSwift', '~> 3.4'
   pod 'RxCocoa', '~> 3.5'
-  pod 'RxAlamofire', '~> 3.0'
   pod 'ObjectMapper', '~> 2.2'
   pod 'Kingfisher', '~> 3.10'
   pod 'Action'

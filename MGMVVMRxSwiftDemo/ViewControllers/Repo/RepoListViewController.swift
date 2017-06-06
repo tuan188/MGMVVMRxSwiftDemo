@@ -7,18 +7,21 @@
 //
 
 import UIKit
-import RxAlamofire
 import RxSwift
 import RxCocoa
+import Action
 
 class RepoListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
+    @IBOutlet var refreshButton: UIBarButtonItem!
     
     let repoService = RepoService()
     let bag = DisposeBag()
     
     var repoList = Variable<[Repo]>([])
+    
+    var loadDataAction: Action<Void, RepoListOutput>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,14 +35,39 @@ class RepoListViewController: UIViewController {
             })
             .disposed(by: bag)
         
-
-        repoService.repoList(input: RepoListInput())
-            .subscribe(onNext: { [weak self] (output) in
+        loadDataAction = Action { [weak self] in
+            guard let strongSelf = self else { return Observable.just(RepoListOutput()) }
+            return strongSelf.repoService.repoList(input: RepoListInput())
+        }
+        
+        loadDataAction
+            .elements
+            .subscribe(onNext: { [weak self](output) in
                 self?.repoList.value = output.repositories ?? []
             }, onError: { (error) in
-                print(error)
+                print("1)", error)
             })
             .disposed(by: bag)
+        
+        loadDataAction
+            .errors
+            .subscribe(onError: { (error) in
+                print("2)", error)
+            })
+            .disposed(by: bag)
+        
+        refreshButton.rx
+            .bind(to: loadDataAction) { _ in }
+        
+        loadDataAction.execute()
+
+//        repoService.repoList(input: RepoListInput())
+//            .subscribe(onNext: { [weak self] (output) in
+//                self?.repoList.value = output.repositories ?? []
+//            }, onError: { (error) in
+//                print(error)
+//            })
+//            .disposed(by: bag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

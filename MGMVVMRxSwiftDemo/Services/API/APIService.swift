@@ -7,26 +7,44 @@
 //
 
 import UIKit
-import RxAlamofire
-import Alamofire
 import RxSwift
 import ObjectMapper
 
 enum APIError: Error {
-    case invalidData(Any)
+    case invalidURL(url: String)
+    case invalidResponseData(data: Any)
+    case error(responseCode: Int, data: Any)
 }
 
 class APIService {
     
     private func _request(_ input: APIInput) -> Observable<Any> {
-        let manager = SessionManager.default
-        return manager.rx
-            .request(input.requestType, input.urlString, parameters: input.parameters, encoding: input.encoding, headers: input.headers)
-            .flatMap {
-                $0
-                    .validate(statusCode: 200 ..< 300)
-                    .rx.json()
-        }
+        return Observable
+            .just(input.urlString)
+            .map { (urlString) -> URL in
+                if let url = URL(string: urlString) {
+                    return url
+                }
+                throw APIError.invalidURL(url: urlString)
+            }
+            .map { (url) -> URLRequest in
+                return URLRequest(url: url)
+            }
+            .flatMap { (request) -> Observable<(HTTPURLResponse, Data)> in
+                return URLSession.shared.rx.response(request: request)
+            }
+            .filter { (response, data) -> Bool in
+                if 200..<300 ~= response.statusCode {
+                    return true
+                }
+                throw APIError.error(responseCode: response.statusCode, data: data)
+            }
+            .map { _, data -> Any in
+                if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) {
+                    return jsonObject
+                }
+                throw APIError.invalidResponseData(data: data)
+            }
     }
     
     func request<T: Mappable>(_ input: APIInput) -> Observable<T> {
@@ -36,7 +54,7 @@ class APIService {
                     let item = T(JSON: json) {
                     return item
                 } else {
-                    throw APIError.invalidData(data)
+                    throw APIError.invalidResponseData(data: data)
                 }
             }
     }
@@ -47,7 +65,7 @@ class APIService {
                 if let jsonArray = data as? [[String:Any]] {
                     return Mapper<T>().mapArray(JSONArray: jsonArray)
                 } else {
-                    throw APIError.invalidData(data)
+                    throw APIError.invalidResponseData(data: data)
                 }
         }
     }

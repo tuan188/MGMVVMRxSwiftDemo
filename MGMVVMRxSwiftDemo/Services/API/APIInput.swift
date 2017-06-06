@@ -7,7 +7,17 @@
 //
 
 import UIKit
-import Alamofire
+
+enum HTTPMethod: String {
+    case get = "GET"
+    case post = "POST"
+    case delete = "DELETE"
+}
+
+enum ParameterEncoding {
+    case url
+    case json
+}
 
 class APIInput {
     let headers = [
@@ -23,6 +33,6 @@ class APIInput {
         self.urlString = urlString
         self.parameters = parameters
         self.requestType = requestType
-        self.encoding = requestType == .get ? URLEncoding.default : JSONEncoding.default
+        self.encoding = requestType == .get ? .url : .json
     }
 }
