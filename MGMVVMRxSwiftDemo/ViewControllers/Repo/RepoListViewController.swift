@@ -15,6 +15,7 @@ class RepoListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var refreshButton: UIBarButtonItem!
+    
     var refreshControl: UIRefreshControl!
     
     let repoService = RepoService()
@@ -38,6 +39,7 @@ class RepoListViewController: UIViewController {
         
         loadDataAction = Action { [weak self] sender in
             print(sender)
+            UIApplication.shared.isNetworkActivityIndicatorVisible = true
             guard let strongSelf = self else { return Observable.just(RepoListOutput()) }
             return strongSelf.repoService.repoList(input: RepoListInput())
         }
@@ -47,6 +49,7 @@ class RepoListViewController: UIViewController {
             .subscribe(onNext: { [weak self](output) in
                 self?.repoList.value = output.repositories ?? []
                 self?.refreshControl.endRefreshing()
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
             .disposed(by: bag)
         
@@ -60,8 +63,6 @@ class RepoListViewController: UIViewController {
         refreshButton.rx
             .bind(to: loadDataAction) { _ in return "Refresh button" }
         
-        loadDataAction.execute("First load")
-        
         refreshControl = UIRefreshControl()
         refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
         refreshControl.rx
@@ -69,6 +70,8 @@ class RepoListViewController: UIViewController {
                 return "Refresh button"
         }
         tableView.addSubview(refreshControl)
+        
+        loadDataAction.execute("First load")
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

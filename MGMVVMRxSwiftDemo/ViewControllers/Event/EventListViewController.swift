@@ -70,7 +70,7 @@ class EventListViewController: UIViewController {
     
     private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
         if let cell = cell as? EventCell {
-            cell.event.value = eventList.value[indexPath.row]
+            cell.event = eventList.value[indexPath.row]
         }
     }
     
