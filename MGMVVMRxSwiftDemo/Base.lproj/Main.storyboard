@@ -12,7 +12,7 @@
         <!--Repo List-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="RepoListViewController" customModule="MGMVVMRxSwiftDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="RepoListViewController" customModule="MVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -49,12 +49,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1056.8" y="122.78860569715144"/>
+            <point key="canvasLocation" x="1082" y="-561"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="5FH-p6-iuL">
             <objects>
-                <viewController id="ETo-7F-CB0" customClass="EventListViewController" customModule="MGMVVMRxSwiftDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="ETo-7F-CB0" customClass="EventListViewController" customModule="MVC" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="7I2-Np-cmB"/>
                         <viewControllerLayoutGuide type="bottom" id="8iA-P2-kz7"/>
@@ -82,7 +82,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9d5-d9-KPC" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1842" y="123"/>
+            <point key="canvasLocation" x="1828" y="-562"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="WmY-PK-IIz">

@@ -9,6 +9,7 @@
 import UIKit
 import RxSwift
 import ObjectMapper
+import RxCocoa
 
 enum APIError: Error {
     case invalidURL(url: String)
