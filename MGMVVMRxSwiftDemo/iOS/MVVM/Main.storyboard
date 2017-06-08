@@ -12,7 +12,7 @@
         <!--Repo List View Controller-->
         <scene sceneID="ObI-aJ-074">
             <objects>
-                <viewController id="AL7-a9-ptX" customClass="RepoListViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepoListViewController" id="AL7-a9-ptX" customClass="RepoListViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="h7S-Hp-gYN"/>
                         <viewControllerLayoutGuide type="bottom" id="4Kf-Re-YoK"/>
@@ -41,12 +41,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ipx-5Y-dyO" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2012" y="197.45127436281859"/>
+            <point key="canvasLocation" x="1846" y="197"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="7VI-Yb-C8B">
             <objects>
-                <viewController id="hX5-N5-ZZj" customClass="EventListViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventListViewController" id="hX5-N5-ZZj" customClass="EventListViewController" customModule="MVVM" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="e6A-Yl-h2d"/>
                         <viewControllerLayoutGuide type="bottom" id="5Ib-hL-WcF"/>
@@ -74,7 +74,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="NN2-jH-hcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2772" y="198.35082458770617"/>
+            <point key="canvasLocation" x="2604" y="197"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="40F-OP-orY">
@@ -86,9 +86,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="AL7-a9-ptX" kind="relationship" relationship="rootViewController" id="Fyg-S5-yOK"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8Of-pI-7cD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

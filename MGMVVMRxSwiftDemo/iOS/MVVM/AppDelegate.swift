@@ -12,9 +12,15 @@ import UIKit
 class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var window: UIWindow?
+    let navigator = Navigator()
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        
+        if let nav = window?.rootViewController as? UINavigationController {
+            navigator.show(segue: .repoList, sender: nav)
+        }
+        
         return true
     }
     

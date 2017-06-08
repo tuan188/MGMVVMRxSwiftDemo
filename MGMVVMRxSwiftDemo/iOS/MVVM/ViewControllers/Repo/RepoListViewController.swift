@@ -14,8 +14,16 @@ class RepoListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
-    private let bag = DisposeBag()
+    fileprivate let bag = DisposeBag()
     fileprivate var viewModel: RepoListViewModel!
+    fileprivate var navigator: Navigator!
+    
+    static func createWith(navigator: Navigator, storyboard: UIStoryboard, viewModel: RepoListViewModel) -> RepoListViewController {
+        let controller = storyboard.instantiateViewController(ofType: RepoListViewController.self)
+        controller.navigator = navigator
+        controller.viewModel = viewModel
+        return controller
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -25,8 +33,6 @@ class RepoListViewController: UIViewController {
         tableView.register(UINib(nibName: RepoCell.cellIdentifier, bundle: nil),
                            forCellReuseIdentifier: RepoCell.cellIdentifier)
         tableView.delegate = self
-        
-        self.viewModel = RepoListViewModel(repoService: RepoService())
 
         bindUI()
         
