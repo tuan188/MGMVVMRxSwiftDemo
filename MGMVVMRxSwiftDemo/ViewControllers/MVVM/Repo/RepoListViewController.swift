@@ -7,31 +7,58 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
 
 class RepoListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    private let bag = DisposeBag()
+    fileprivate var viewModel: RepoListViewModel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.title = "Repo List"
+        self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: nil, action: nil)
+        tableView.register(UINib(nibName: RepoCell.cellIdentifier, bundle: nil),
+                           forCellReuseIdentifier: RepoCell.cellIdentifier)
+        tableView.delegate = self
+        
+        self.viewModel = RepoListViewModel(repoService: RepoService())
 
-        // Do any additional setup after loading the view.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+        bindUI()
+        
+        viewModel.loadDataAction.execute("First load")
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    private func bindUI() {
+        self.navigationItem.rightBarButtonItem!.rx
+            .bind(to: viewModel.loadDataAction) { _ in return "Refresh button" }
+        
+        viewModel
+            .repoList
+            .asObservable()
+            .bind(to: tableView.rx.items) { [weak self] tableView, index, event in
+                let indexPath = IndexPath(item: index, section: 0)
+                let cell = tableView.dequeueReusableCell(withIdentifier: RepoCell.cellIdentifier, for: indexPath)
+                self?.config(cell, at: indexPath)
+                return cell
+            }
+            .disposed(by: bag)
     }
-    */
+    
+    private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
+        if let cell = cell as? RepoCell {
+            cell.repo = viewModel.repoList.value[indexPath.row]
+        }
+    }
+}
 
+// MARK: - UITableViewDelegate
+extension RepoListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 92
+    }
 }

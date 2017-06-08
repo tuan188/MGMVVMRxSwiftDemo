@@ -9,7 +9,12 @@
 import UIKit
 import RxSwift
 
-class RepoService: APIService {
+protocol RepoServiceProtocol {
+    func repoList(input: RepoListInput) -> Observable<RepoListOutput>
+    func eventList(input: EventListInput) -> Observable<EventListOutput>
+}
+
+class RepoService: APIService, RepoServiceProtocol {
     func repoList(input: RepoListInput) -> Observable<RepoListOutput> {
         return self.request(input)
             .observeOn(MainScheduler.instance)

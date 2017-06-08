@@ -18,12 +18,12 @@ class RepoListViewController: UIViewController {
     
     var refreshControl: UIRefreshControl!
     
-    let repoService = RepoService()
+    let repoService: RepoServiceProtocol = RepoService()
     let bag = DisposeBag()
     
     var repoList = Variable<[Repo]>([])
     
-    var loadDataAction: Action<String, RepoListOutput>!
+    var loadDataAction: Action<String, [Repo]>!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,24 +39,25 @@ class RepoListViewController: UIViewController {
         
         loadDataAction = Action { [weak self] sender in
             print(sender)
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            guard let strongSelf = self else { return Observable.just(RepoListOutput()) }
+            guard let strongSelf = self else { return Observable.never() }
             return strongSelf.repoService.repoList(input: RepoListInput())
+                .map({ (output) -> [Repo] in
+                    return output.repositories ?? []
+                })
         }
         
         loadDataAction
             .elements
-            .subscribe(onNext: { [weak self](output) in
-                self?.repoList.value = output.repositories ?? []
+            .subscribe(onNext: { [weak self](repoList) in
+                self?.repoList.value = repoList
                 self?.refreshControl.endRefreshing()
-                UIApplication.shared.isNetworkActivityIndicatorVisible = false
             })
             .disposed(by: bag)
         
         loadDataAction
             .errors
             .subscribe(onError: { (error) in
-                print("2)", error)
+                print(error)
             })
             .disposed(by: bag)
         
