@@ -11,7 +11,7 @@ import RxSwift
 import RxCocoa
 import SwinjectStoryboard
 
-class Navigator: NSObject {
+class Navigator {
     lazy private var defaultStoryboard = UIStoryboard(name: "Main", bundle: nil)
     
     // MARK: - segues list
@@ -27,7 +27,8 @@ class Navigator: NSObject {
             let viewModel = RepoListViewModel(repoService: SwinjectStoryboard.defaultContainer.resolve(RepoServiceProtocol.self)!)
             show(target: RepoListViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
         case .eventList(let repo):
-            break
+            let viewModel = EventListViewModel(repoService: SwinjectStoryboard.defaultContainer.resolve(RepoServiceProtocol.self)!, repo: repo)
+            show(target: EventListViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: viewModel), sender: sender)
         }
     }
     

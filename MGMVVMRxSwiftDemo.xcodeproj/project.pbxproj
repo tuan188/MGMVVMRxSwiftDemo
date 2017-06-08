@@ -55,6 +55,8 @@
 		BCFFE9311EE923C600D9BA76 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE92F1EE923B600D9BA76 /* SwinjectStoryboard.swift */; };
 		BCFFE9341EE928E500D9BA76 /* Storyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9331EE928E500D9BA76 /* Storyboard+.swift */; };
 		BCFFE9351EE928E500D9BA76 /* Storyboard+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9331EE928E500D9BA76 /* Storyboard+.swift */; };
+		BCFFE9371EE9336900D9BA76 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9361EE9336900D9BA76 /* EventListViewModel.swift */; };
+		BCFFE9381EE9336900D9BA76 /* EventListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9361EE9336900D9BA76 /* EventListViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -98,6 +100,7 @@
 		BCFFE92D1EE9236200D9BA76 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
 		BCFFE92F1EE923B600D9BA76 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
 		BCFFE9331EE928E500D9BA76 /* Storyboard+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Storyboard+.swift"; sourceTree = "<group>"; };
+		BCFFE9361EE9336900D9BA76 /* EventListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewModel.swift; sourceTree = "<group>"; };
 		F88A58E3C8CE3ACCA314EC29 /* Pods-MVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM/Pods-MVVM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -305,6 +308,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFFE8F51EE8FF7100D9BA76 /* RepoListViewModel.swift */,
+				BCFFE9361EE9336900D9BA76 /* EventListViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -558,6 +562,7 @@
 				BCFFE9121EE8FF9500D9BA76 /* AppDelegate.swift in Sources */,
 				BCBCCC421EE4ED0E00E3BD7A /* APIOutput.swift in Sources */,
 				BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */,
+				BCFFE9371EE9336900D9BA76 /* EventListViewModel.swift in Sources */,
 				BCFFE9001EE8FF7100D9BA76 /* EventListViewController.swift in Sources */,
 				BC49DE771EE551E900BF7616 /* RepoService.swift in Sources */,
 			);
@@ -584,6 +589,7 @@
 				BCABC3A61EE7D95B00AF5B55 /* APIOutput.swift in Sources */,
 				BCFFE90D1EE8FF7100D9BA76 /* RepoListViewController.swift in Sources */,
 				BCFFE91A1EE9000D00D9BA76 /* EventCell.swift in Sources */,
+				BCFFE9381EE9336900D9BA76 /* EventListViewModel.swift in Sources */,
 				BCABC3A71EE7D95B00AF5B55 /* Repo.swift in Sources */,
 				BCABC3A91EE7D95B00AF5B55 /* RepoService.swift in Sources */,
 			);

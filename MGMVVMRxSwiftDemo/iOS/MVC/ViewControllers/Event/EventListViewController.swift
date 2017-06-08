@@ -25,6 +25,7 @@ class EventListViewController: UIViewController {
         
         tableView.register(UINib(nibName: EventCell.cellIdentifier, bundle: nil),
                            forCellReuseIdentifier: EventCell.cellIdentifier)
+        tableView.rowHeight = 42
         
         eventList
             .asObservable()
@@ -34,17 +35,6 @@ class EventListViewController: UIViewController {
                 self?.config(cell, at: indexPath)
                 return cell
             }
-            .disposed(by: bag)
-        
-        tableView.rx
-            .modelSelected(Event.self)
-            .filter { $0.type != nil }
-            .subscribe(onNext: { [weak self](event) in
-                let alertController = UIAlertController(title: nil, message: event.type! + " was selected", preferredStyle: .alert)
-                alertController.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
-                
-                self?.present(alertController, animated: true, completion: nil)
-            })
             .disposed(by: bag)
         
         repo

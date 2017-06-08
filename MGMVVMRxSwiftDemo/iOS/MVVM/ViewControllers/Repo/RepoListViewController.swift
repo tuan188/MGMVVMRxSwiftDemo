@@ -13,10 +13,12 @@ import RxCocoa
 class RepoListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
+    private var refreshControl: UIRefreshControl!
     
     fileprivate let bag = DisposeBag()
-    fileprivate var viewModel: RepoListViewModel!
     fileprivate var navigator: Navigator!
+    
+    fileprivate var viewModel: RepoListViewModel!
     
     static func createWith(navigator: Navigator, storyboard: UIStoryboard, viewModel: RepoListViewModel) -> RepoListViewController {
         let controller = storyboard.instantiateViewController(ofType: RepoListViewController.self)
@@ -32,7 +34,11 @@ class RepoListViewController: UIViewController {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .refresh, target: nil, action: nil)
         tableView.register(UINib(nibName: RepoCell.cellIdentifier, bundle: nil),
                            forCellReuseIdentifier: RepoCell.cellIdentifier)
-        tableView.delegate = self
+        tableView.rowHeight = 92
+        
+        refreshControl = UIRefreshControl()
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        tableView.addSubview(refreshControl)
 
         bindUI()
         
@@ -53,18 +59,30 @@ class RepoListViewController: UIViewController {
                 return cell
             }
             .disposed(by: bag)
+        
+        viewModel.isLoadingData
+            .asDriver()
+            .drive(refreshControl.rx.isRefreshing)
+            .disposed(by: bag)
+        
+        tableView.rx
+            .modelSelected(Repo.self)
+            .subscribe(onNext: { [weak self](repo) in
+                guard let this = self else { return }
+                self?.navigator.show(segue: .eventList(repo: Variable(repo)), sender: this)
+            })
+            .disposed(by: bag)
+        
+        refreshControl.rx
+            .bind(to: viewModel.loadDataAction, controlEvent: refreshControl.rx.controlEvent(.valueChanged)) { _ in
+                return "Refresh button"
+        }
+        
     }
     
     private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
         if let cell = cell as? RepoCell {
             cell.repo = viewModel.repoList.value[indexPath.row]
         }
-    }
-}
-
-// MARK: - UITableViewDelegate
-extension RepoListViewController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 92
     }
 }
