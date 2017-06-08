@@ -34,7 +34,7 @@
 		BCFFE8FA1EE8FF7100D9BA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFFE8E31EE8FF7100D9BA76 /* Main.storyboard */; };
 		BCFFE9001EE8FF7100D9BA76 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE8E81EE8FF7100D9BA76 /* EventListViewController.swift */; };
 		BCFFE9061EE8FF7100D9BA76 /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE8EC1EE8FF7100D9BA76 /* RepoListViewController.swift */; };
-		BCFFE9091EE8FF7100D9BA76 /* MVVM.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFFE8EE1EE8FF7100D9BA76 /* MVVM.storyboard */; };
+		BCFFE9091EE8FF7100D9BA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFFE8EE1EE8FF7100D9BA76 /* Main.storyboard */; };
 		BCFFE90B1EE8FF7100D9BA76 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE8F11EE8FF7100D9BA76 /* EventListViewController.swift */; };
 		BCFFE90D1EE8FF7100D9BA76 /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE8F31EE8FF7100D9BA76 /* RepoListViewController.swift */; };
 		BCFFE90F1EE8FF7100D9BA76 /* RepoListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE8F51EE8FF7100D9BA76 /* RepoListViewModel.swift */; };
@@ -49,6 +49,10 @@
 		BCFFE9201EE9000D00D9BA76 /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9171EE9000D00D9BA76 /* RepoCell.swift */; };
 		BCFFE9211EE9000D00D9BA76 /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFFE9181EE9000D00D9BA76 /* RepoCell.xib */; };
 		BCFFE9221EE9000D00D9BA76 /* RepoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = BCFFE9181EE9000D00D9BA76 /* RepoCell.xib */; };
+		BCFFE9241EE9014800D9BA76 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9231EE9014800D9BA76 /* AppDelegate.swift */; };
+		BCFFE9261EE9019600D9BA76 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE9251EE9019600D9BA76 /* Navigator.swift */; };
+		BCFFE92E1EE9236200D9BA76 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE92D1EE9236200D9BA76 /* SwinjectStoryboard.swift */; };
+		BCFFE9311EE923C600D9BA76 /* SwinjectStoryboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE92F1EE923B600D9BA76 /* SwinjectStoryboard.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -77,7 +81,7 @@
 		BCFFE8E31EE8FF7100D9BA76 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BCFFE8E81EE8FF7100D9BA76 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		BCFFE8EC1EE8FF7100D9BA76 /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
-		BCFFE8EE1EE8FF7100D9BA76 /* MVVM.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = MVVM.storyboard; sourceTree = "<group>"; };
+		BCFFE8EE1EE8FF7100D9BA76 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BCFFE8F11EE8FF7100D9BA76 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		BCFFE8F31EE8FF7100D9BA76 /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
 		BCFFE8F51EE8FF7100D9BA76 /* RepoListViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewModel.swift; sourceTree = "<group>"; };
@@ -87,6 +91,10 @@
 		BCFFE9161EE9000D00D9BA76 /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
 		BCFFE9171EE9000D00D9BA76 /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		BCFFE9181EE9000D00D9BA76 /* RepoCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RepoCell.xib; sourceTree = "<group>"; };
+		BCFFE9231EE9014800D9BA76 /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		BCFFE9251EE9019600D9BA76 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
+		BCFFE92D1EE9236200D9BA76 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
+		BCFFE92F1EE923B600D9BA76 /* SwinjectStoryboard.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwinjectStoryboard.swift; sourceTree = "<group>"; };
 		F88A58E3C8CE3ACCA314EC29 /* Pods-MVVM.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MVVM.release.xcconfig"; path = "Pods/Target Support Files/Pods-MVVM/Pods-MVVM.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -219,6 +227,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFFE9111EE8FF9500D9BA76 /* AppDelegate.swift */,
+				BCFFE92F1EE923B600D9BA76 /* SwinjectStoryboard.swift */,
 				BCFFE8E31EE8FF7100D9BA76 /* Main.storyboard */,
 				BCFFE8E41EE8FF7100D9BA76 /* ViewControllers */,
 			);
@@ -228,8 +237,8 @@
 		BCFFE8E41EE8FF7100D9BA76 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				BCFFE8E51EE8FF7100D9BA76 /* Event */,
 				BCFFE8E91EE8FF7100D9BA76 /* Repo */,
+				BCFFE8E51EE8FF7100D9BA76 /* Event */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -253,7 +262,10 @@
 		BCFFE8ED1EE8FF7100D9BA76 /* MVVM */ = {
 			isa = PBXGroup;
 			children = (
-				BCFFE8EE1EE8FF7100D9BA76 /* MVVM.storyboard */,
+				BCFFE9231EE9014800D9BA76 /* AppDelegate.swift */,
+				BCFFE92D1EE9236200D9BA76 /* SwinjectStoryboard.swift */,
+				BCFFE9251EE9019600D9BA76 /* Navigator.swift */,
+				BCFFE8EE1EE8FF7100D9BA76 /* Main.storyboard */,
 				BCFFE8EF1EE8FF7100D9BA76 /* ViewControllers */,
 				BCFFE8F41EE8FF7100D9BA76 /* ViewModels */,
 			);
@@ -303,9 +315,9 @@
 		BCFFE9131EE9000D00D9BA76 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				BCFFE9161EE9000D00D9BA76 /* LaunchScreen.storyboard */,
 				BCFFE9141EE9000D00D9BA76 /* EventCell.swift */,
 				BCFFE9151EE9000D00D9BA76 /* EventCell.xib */,
-				BCFFE9161EE9000D00D9BA76 /* LaunchScreen.storyboard */,
 				BCFFE9171EE9000D00D9BA76 /* RepoCell.swift */,
 				BCFFE9181EE9000D00D9BA76 /* RepoCell.xib */,
 			);
@@ -413,7 +425,7 @@
 			files = (
 				BCFFE91C1EE9000D00D9BA76 /* EventCell.xib in Resources */,
 				BCFFE9221EE9000D00D9BA76 /* RepoCell.xib in Resources */,
-				BCFFE9091EE8FF7100D9BA76 /* MVVM.storyboard in Resources */,
+				BCFFE9091EE8FF7100D9BA76 /* Main.storyboard in Resources */,
 				BCFFE91E1EE9000D00D9BA76 /* LaunchScreen.storyboard in Resources */,
 				BCABC3B01EE7D95B00AF5B55 /* Assets.xcassets in Resources */,
 			);
@@ -522,6 +534,7 @@
 				BC49DE7D1EE5530700BF7616 /* EventList.swift in Sources */,
 				BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */,
 				BC49DE7B1EE5526500BF7616 /* Event.swift in Sources */,
+				BCFFE9311EE923C600D9BA76 /* SwinjectStoryboard.swift in Sources */,
 				BCABC3791EE699EE00AF5B55 /* APIExtensions.swift in Sources */,
 				BCFFE91F1EE9000D00D9BA76 /* RepoCell.swift in Sources */,
 				BCFFE9191EE9000D00D9BA76 /* EventCell.swift in Sources */,
@@ -542,6 +555,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCABC39A1EE7D95B00AF5B55 /* EventList.swift in Sources */,
+				BCFFE9261EE9019600D9BA76 /* Navigator.swift in Sources */,
 				BCABC39D1EE7D95B00AF5B55 /* Event.swift in Sources */,
 				BCABC39E1EE7D95B00AF5B55 /* APIExtensions.swift in Sources */,
 				BCFFE90B1EE8FF7100D9BA76 /* EventListViewController.swift in Sources */,
@@ -549,7 +563,9 @@
 				BCFFE90F1EE8FF7100D9BA76 /* RepoListViewModel.swift in Sources */,
 				BCFFE9201EE9000D00D9BA76 /* RepoCell.swift in Sources */,
 				BCFFE8DE1EE7E37C00D9BA76 /* APIService.swift in Sources */,
+				BCFFE9241EE9014800D9BA76 /* AppDelegate.swift in Sources */,
 				BCABC3A11EE7D95B00AF5B55 /* RepoList.swift in Sources */,
+				BCFFE92E1EE9236200D9BA76 /* SwinjectStoryboard.swift in Sources */,
 				BCABC3A21EE7D95B00AF5B55 /* APIInput.swift in Sources */,
 				BCABC3A61EE7D95B00AF5B55 /* APIOutput.swift in Sources */,
 				BCFFE90D1EE8FF7100D9BA76 /* RepoListViewController.swift in Sources */,

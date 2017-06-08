@@ -15,14 +15,12 @@ class RepoListViewController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     @IBOutlet var refreshButton: UIBarButtonItem!
+    private var refreshControl: UIRefreshControl!
     
-    var refreshControl: UIRefreshControl!
-    
-    let repoService: RepoServiceProtocol = RepoService()
+    var repoService: RepoServiceProtocol!
     let bag = DisposeBag()
     
     var repoList = Variable<[Repo]>([])
-    
     var loadDataAction: Action<String, [Repo]>!
 
     override func viewDidLoad() {

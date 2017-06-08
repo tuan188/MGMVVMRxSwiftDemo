@@ -8,6 +8,8 @@ def app
     pod 'ObjectMapper', '~> 2.2'
     pod 'Kingfisher', '~> 3.10'
     pod 'Action'
+    pod 'Swinject', '~> 2.0'
+    pod 'SwinjectStoryboard', '1.0.0'
 end
 
 target 'MVC' do

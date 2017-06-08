@@ -14,11 +14,11 @@ class EventListViewController: UIViewController {
 
     @IBOutlet var tableView: UITableView!
     
+    var repoService: RepoServiceProtocol!
     let bag = DisposeBag()
-    var eventList = Variable<[Event]>([])
-    var repo: Variable<Repo>!
     
-    let repoService = RepoService()
+    private var eventList = Variable<[Event]>([])
+    var repo: Variable<Repo>!
     
     override func viewDidLoad() {
         super.viewDidLoad()

@@ -17,6 +17,10 @@ class EventListInput: APIInput {
     }
 }
 
-struct EventListOutput {
+class EventListOutput: APIOutput {
     let events: [Event]
+    
+    init(events: [Event]) {
+        self.events = events
+    }
 }
