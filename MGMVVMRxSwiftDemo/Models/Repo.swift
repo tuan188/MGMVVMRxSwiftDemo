@@ -17,6 +17,10 @@ struct Repo: Mappable {
     var folkCount = 0
     var avatarURLString: String?
     
+    init() {
+        
+    }
+    
     init?(map: Map) {
         
     }

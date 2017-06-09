@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import RxSwift
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
@@ -22,7 +23,7 @@ class AppDelegate: NSObject, NSApplicationDelegate {
         
         
         navigator.show(segue: .repoList, sender: splitController)
-        
+        navigator.show(segue: .eventList(repo: Variable(Repo())), sender: splitController)
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

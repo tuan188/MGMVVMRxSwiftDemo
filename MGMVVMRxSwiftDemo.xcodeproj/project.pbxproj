@@ -47,6 +47,7 @@
 		BCB03AAF1EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
 		BCB03AB01EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
 		BCB03AB11EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
+		BCB03AB31EEA82C80001F1B7 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AB21EEA82C80001F1B7 /* EventCell.swift */; };
 		BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC361EE3C86800E3BD7A /* APIService.swift */; };
 		BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */; };
@@ -117,6 +118,7 @@
 		BCABC3B71EE7D95B00AF5B55 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCABC3B81EE7D95B00AF5B55 /* MVVM.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MVVM.plist; path = /Users/tuantruong/Documents/Git/MGMVVMRxSwiftDemo/MVVM.plist; sourceTree = "<absolute>"; };
 		BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+.swift"; sourceTree = "<group>"; };
+		BCB03AB21EEA82C80001F1B7 /* EventCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventCell.swift; sourceTree = "<group>"; };
 		BCBCCC361EE3C86800E3BD7A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BCBCCC391EE3D02700E3BD7A /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				BC359C991EEA347800F2F181 /* EventListViewController.swift */,
+				BCB03AB21EEA82C80001F1B7 /* EventCell.swift */,
 			);
 			path = EventList;
 			sourceTree = "<group>";
@@ -798,6 +801,7 @@
 				BC359CAB1EEA57DD00F2F181 /* EventList.swift in Sources */,
 				BC359CA61EEA57DA00F2F181 /* APIExtensions.swift in Sources */,
 				BCB03AB11EEA7E0F0001F1B7 /* TableView+.swift in Sources */,
+				BCB03AB31EEA82C80001F1B7 /* EventCell.swift in Sources */,
 				BC359C9B1EEA347800F2F181 /* EventListViewController.swift in Sources */,
 				BC359CA71EEA57DA00F2F181 /* APIInput.swift in Sources */,
 				BC359CA51EEA57DA00F2F181 /* APIService.swift in Sources */,

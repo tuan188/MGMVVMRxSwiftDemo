@@ -2,22 +2,21 @@
 //  EventCell.swift
 //  MGMVVMRxSwiftDemo
 //
-//  Created by Tuan Truong on 6/5/17.
+//  Created by Tuan Truong on 6/9/17.
 //  Copyright © 2017 Tuan Truong. All rights reserved.
 //
 
-import UIKit
-import RxSwift
+import Cocoa
 import Kingfisher
 
-class EventCell: UITableViewCell {
-
-    @IBOutlet var avatarImageView: UIImageView!
-    @IBOutlet var typeLabel: UILabel!
+class EventCell: NSTableCellView {
+    
+    @IBOutlet var avatarImageView: NSImageView!
+    @IBOutlet var typeLabel: NSTextField!
     
     var event: Event! {
         didSet {
-            typeLabel.text = event.type
+            typeLabel.stringValue = event.type ?? ""
             if let url = URL(string: event.avatarURLString ?? "") {
                 avatarImageView.kf.setImage(with: url)
             }
@@ -27,5 +26,4 @@ class EventCell: UITableViewCell {
     static var cellIdentifier: String {
         return String(describing: self)
     }
-
 }

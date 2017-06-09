@@ -27,11 +27,12 @@ class Navigator {
             let vm = RepoListViewModel(repoService: RepoService())
             show(target: RepoListViewController.createWith(navigator: self, storyboard: defaultStoryboard, viewModel: vm), sender: sender)
         case .eventList(let repo):
-//            if let replaceableSender = (sender.parent as? NSSplitViewController)?.childViewControllers.last {
-//                show(target: RepoListViewController.createWith(navigator: self, storyboard: sender.storyboard ?? defaultStoryboard, viewModel: vm), sender: replaceableSender)
-//            } else {
-//                show(target: RepoListViewController.createWith(navigator: self, storyboard: sender.storyboard ?? defaultStoryboard, viewModel: vm), sender: sender)
-//            }
+            let vm = EventListViewModel(repoService: RepoService(), repo: repo)
+            if let replaceableSender = (sender.parent as? NSSplitViewController)?.childViewControllers.last {
+                show(target: EventListViewController.createWith(navigator: self, storyboard: sender.storyboard ?? defaultStoryboard, viewModel: vm), sender: replaceableSender)
+            } else {
+                show(target: EventListViewController.createWith(navigator: self, storyboard: sender.storyboard ?? defaultStoryboard, viewModel: vm), sender: sender)
+            }
             break
         }
     }

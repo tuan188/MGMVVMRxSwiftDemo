@@ -47,6 +47,13 @@ class RepoListViewController: NSViewController {
             })
             .disposed(by: bag)
     }
+    
+    @IBAction func tableViewDidSelectRow(_ sender: NSTableView) {
+        if sender.selectedRow >= 0 {
+            let repo = viewModel.repoList.value[sender.selectedRow]
+            navigator.show(segue: .eventList(repo: Variable(repo)), sender: self)
+        }
+    }
 }
 
 // MARK: - NSTableViewDataSource

@@ -24,6 +24,7 @@ class RepoListViewController: UIViewController {
         let controller = storyboard.instantiateViewController(ofType: RepoListViewController.self)
         controller.navigator = navigator
         controller.viewModel = viewModel
+        
         return controller
     }
     
