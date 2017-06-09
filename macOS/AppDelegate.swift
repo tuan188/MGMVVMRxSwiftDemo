@@ -11,10 +11,14 @@ import Cocoa
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
 
-
-
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
+        
+        guard let splitController = NSApp.windows.first?.contentViewController as? NSSplitViewController else {
+            fatalError("Can't find content controller")
+        }
+        
+        
     }
 
     func applicationWillTerminate(_ aNotification: Notification) {

@@ -47,8 +47,9 @@ class EventListViewController: UIViewController {
         repo
             .asObservable()
             .filter { $0.fullname != nil && !$0.fullname!.isEmpty }
-            .flatMap({ (repo) -> Observable<EventListOutput> in
-                return self.repoService.eventList(input: EventListInput(repoFullName: repo.fullname!))
+            .map { $0.fullname! }
+            .flatMap({ repoFullName -> Observable<EventListOutput> in
+                return self.repoService.eventList(input: EventListInput(repoFullName: repoFullName))
             })
             .subscribe(onNext: { [weak self] (output) in
                 self?.eventList.value = output.events

@@ -23,7 +23,6 @@ class EventCell: UITableViewCell {
             }
         }
     }
-    let bag = DisposeBag()
     
     static var cellIdentifier: String {
         return String(describing: self)

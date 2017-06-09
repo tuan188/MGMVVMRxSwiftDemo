@@ -6,7 +6,7 @@
 //  Copyright © 2017 Tuan Truong. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 extension URL {
     /**

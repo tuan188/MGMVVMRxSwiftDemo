@@ -6,8 +6,6 @@
 //  Copyright © 2017 Tuan Truong. All rights reserved.
 //
 
-import UIKit
-
 enum HTTPMethod: String {
     case get = "GET"
     case post = "POST"

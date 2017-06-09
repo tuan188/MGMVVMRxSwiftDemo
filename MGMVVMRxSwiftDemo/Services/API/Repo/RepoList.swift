@@ -6,7 +6,6 @@
 //  Copyright © 2017 Tuan Truong. All rights reserved.
 //
 
-import UIKit
 import ObjectMapper
 
 class RepoListInput: APIInput {
