@@ -20,6 +20,10 @@ class RepoListOutput: APIOutput, Mappable {
     
     var repositories: [Repo]?
     
+    override init() {
+        
+    }
+    
     required init?(map: Map) {
         
     }

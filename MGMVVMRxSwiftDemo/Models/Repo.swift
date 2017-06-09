@@ -21,6 +21,10 @@ struct Repo: Mappable {
         
     }
     
+    init(name: String) {
+        self.name = name
+    }
+    
     init?(map: Map) {
         
     }

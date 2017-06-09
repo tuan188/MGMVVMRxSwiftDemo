@@ -50,6 +50,7 @@
 		BCB03AB11EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
 		BCB03AB31EEA82C80001F1B7 /* EventCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AB21EEA82C80001F1B7 /* EventCell.swift */; };
 		BCB03AC31EEA9B7D0001F1B7 /* RepoListViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AC21EEA9B7D0001F1B7 /* RepoListViewModelTests.swift */; };
+		BCB03AC51EEA9F6C0001F1B7 /* MockRepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AC41EEA9F6C0001F1B7 /* MockRepoService.swift */; };
 		BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC361EE3C86800E3BD7A /* APIService.swift */; };
 		BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */; };
@@ -137,6 +138,7 @@
 		BCB03AB81EEA99B00001F1B7 /* MVVMTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MVVMTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCB03ABC1EEA99B00001F1B7 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BCB03AC21EEA9B7D0001F1B7 /* RepoListViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewModelTests.swift; sourceTree = "<group>"; };
+		BCB03AC41EEA9F6C0001F1B7 /* MockRepoService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MockRepoService.swift; sourceTree = "<group>"; };
 		BCBCCC361EE3C86800E3BD7A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BCBCCC391EE3D02700E3BD7A /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 			children = (
 				BCB03AC21EEA9B7D0001F1B7 /* RepoListViewModelTests.swift */,
 				BCB03ABC1EEA99B00001F1B7 /* Info.plist */,
+				BCB03AC41EEA9F6C0001F1B7 /* MockRepoService.swift */,
 			);
 			path = MVVMTests;
 			sourceTree = "<group>";
@@ -910,6 +913,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				BCB03AC31EEA9B7D0001F1B7 /* RepoListViewModelTests.swift in Sources */,
+				BCB03AC51EEA9F6C0001F1B7 /* MockRepoService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

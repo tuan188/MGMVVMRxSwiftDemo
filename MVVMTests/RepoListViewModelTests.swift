@@ -14,27 +14,35 @@ import RxTest
 @testable import MVVM
 
 class RepoListViewModelTests: XCTestCase {
-
-    override func setUp() {
-        super.setUp()
-        // Put setup code here. This method is called before the invocation of each test method in the class.
+    
+    let bag = DisposeBag()
+    
+    func test_whenInitialized_storesInitParams() {
+        let viewModel = RepoListViewModel(repoService: MockRepoService())
+        
+        XCTAssertNotNil(viewModel.repoService)
+        XCTAssertNotNil(viewModel.repoList)
     }
     
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
+    func test_get_repoList() {
+        let asyncExpect = expectation(description: "fulfill test")
+        
+        let viewModel = RepoListViewModel(repoService: MockRepoService())
+        
+        XCTAssertEqual(viewModel.repoList.value.count, 0)
+        
+        viewModel.loadDataAction
+            .execute("Test")
+            .subscribe(onNext: { _ in
+                asyncExpect.fulfill()
+            })
+            .disposed(by: bag)
+        
+        waitForExpectations(timeout: 1.0, handler: { error in
+            XCTAssertNil(error, "error: \(error!.localizedDescription)")
+            XCTAssertEqual(viewModel.repoList.value.count, 2)
+        })
     }
-
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
+    
 
 }
