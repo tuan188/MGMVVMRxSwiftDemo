@@ -8,13 +8,20 @@ abstract_target 'AppAbstract' do
     pod 'Kingfisher', '~> 3.10'
     
     target 'MVC' do
-        platform :ios, '10.0'
+        platform :ios, '10.3'
         pod 'Swinject', '~> 2.0'
         pod 'SwinjectStoryboard', '1.0.0'
     end
     
     target 'MVVM' do
-        platform :ios, '10.0'
+        platform :ios, '10.3'
+        pod 'Swinject', '~> 2.0'
+        pod 'SwinjectStoryboard', '1.0.0'
+    end
+    
+    target 'MVVMTests' do
+        platform :ios, '10.3'
+        pod 'RxTest'
         pod 'Swinject', '~> 2.0'
         pod 'SwinjectStoryboard', '1.0.0'
     end
@@ -22,5 +29,7 @@ abstract_target 'AppAbstract' do
     target 'macOS' do
         platform :osx, '10.13'
     end
+    
+    
 end
 

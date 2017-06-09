@@ -7,6 +7,8 @@ PODS:
   - RxCocoa (3.5.0):
     - RxSwift (~> 3.4)
   - RxSwift (3.5.0)
+  - RxTest (3.5.0):
+    - RxSwift (~> 3.4)
   - Swinject (2.0.0)
   - SwinjectStoryboard (1.0.0):
     - Swinject (= 2.0.0)
@@ -17,6 +19,7 @@ DEPENDENCIES:
   - ObjectMapper (~> 2.2)
   - RxCocoa (~> 3.5)
   - RxSwift (~> 3.5)
+  - RxTest
   - Swinject (~> 2.0)
   - SwinjectStoryboard (= 1.0.0)
 
@@ -26,9 +29,10 @@ SPEC CHECKSUMS:
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
   RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
+  RxTest: 1763765fd0e2282b0eb44c9050effdd7fe7156d4
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
 
-PODFILE CHECKSUM: 45c65f69a31555b35f5e719a91197ca38c54690a
+PODFILE CHECKSUM: bd16289d895c1c4196f6c8bcd137ce83872035b7
 
 COCOAPODS: 1.2.1
