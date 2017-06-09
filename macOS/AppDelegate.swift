@@ -10,6 +10,8 @@ import Cocoa
 
 @NSApplicationMain
 class AppDelegate: NSObject, NSApplicationDelegate {
+    
+    let navigator = Navigator()
 
     func applicationDidFinishLaunching(_ aNotification: Notification) {
         // Insert code here to initialize your application
@@ -18,6 +20,8 @@ class AppDelegate: NSObject, NSApplicationDelegate {
             fatalError("Can't find content controller")
         }
         
+        
+        navigator.show(segue: .repoList, sender: splitController)
         
     }
 

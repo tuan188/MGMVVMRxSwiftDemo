@@ -694,7 +694,7 @@
         <!--Event List View Controller-->
         <scene sceneID="aGo-Uh-cvk">
             <objects>
-                <viewController id="8fW-hA-n6U" customClass="EventListViewController" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="EventListViewController" id="8fW-hA-n6U" customClass="EventListViewController" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="V7j-UG-qWk">
                         <rect key="frame" x="0.0" y="0.0" width="450" height="300"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -702,12 +702,12 @@
                 </viewController>
                 <customObject id="szh-0f-k4m" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="239" y="1205"/>
+            <point key="canvasLocation" x="169" y="1115"/>
         </scene>
         <!--Repo List View Controller-->
         <scene sceneID="QEl-gq-0pQ">
             <objects>
-                <viewController id="NJx-ba-rac" customClass="RepoListViewController" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="RepoListViewController" id="NJx-ba-rac" customClass="RepoListViewController" customModule="macOS" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" id="zUU-On-BvR">
                         <rect key="frame" x="0.0" y="0.0" width="238" height="341"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -738,7 +738,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView id="vFY-h5-YBa">
+                                                        <tableCellView identifier="RepoCell" id="vFY-h5-YBa" customClass="RepoCell" customModule="macOS">
                                                             <rect key="frame" x="1" y="1" width="233" height="69"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -750,21 +750,47 @@
                                                                     </constraints>
                                                                     <imageCell key="cell" refusesFirstResponder="YES" alignment="left" imageScaling="proportionallyDown" id="BCg-bo-fFB"/>
                                                                 </imageView>
-                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A10-Ew-nj8">
-                                                                    <rect key="frame" x="66" y="37" width="131" height="22"/>
-                                                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="A10-Ew-nj8">
+                                                                    <rect key="frame" x="66" y="42" width="161" height="17"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" title="Title" id="TnN-jZ-tsi">
-                                                                        <font key="font" metaFont="system"/>
+                                                                        <font key="font" metaFont="systemBold"/>
                                                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cqs-fS-45y">
+                                                                    <rect key="frame" x="68" y="22" width="45" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Star: 0" id="Y5J-aV-RLg">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
+                                                                        <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
+                                                                    </textFieldCell>
+                                                                </textField>
+                                                                <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" allowsCharacterPickerTouchBarItem="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xan-bh-zTN">
+                                                                    <rect key="frame" x="68" y="2" width="45" height="17"/>
+                                                                    <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" sendsActionOnEndEditing="YES" title="Folk: 0" id="J0d-gZ-EHk">
+                                                                        <font key="font" metaFont="system"/>
+                                                                        <color key="textColor" name="labelColor" catalog="System" colorSpace="catalog"/>
                                                                         <color key="backgroundColor" name="controlColor" catalog="System" colorSpace="catalog"/>
                                                                     </textFieldCell>
                                                                 </textField>
                                                             </subviews>
                                                             <constraints>
                                                                 <constraint firstItem="Pgj-Am-c5N" firstAttribute="leading" secondItem="vFY-h5-YBa" secondAttribute="leading" constant="12" id="1o9-oM-1Ff"/>
+                                                                <constraint firstItem="A10-Ew-nj8" firstAttribute="leading" secondItem="Pgj-Am-c5N" secondAttribute="trailing" constant="8" id="Aqq-ah-gis"/>
+                                                                <constraint firstItem="cqs-fS-45y" firstAttribute="leading" secondItem="Pgj-Am-c5N" secondAttribute="trailing" constant="10" id="GAN-C8-QW8"/>
+                                                                <constraint firstAttribute="trailing" secondItem="A10-Ew-nj8" secondAttribute="trailing" constant="8" id="ZLi-t6-zAL"/>
+                                                                <constraint firstItem="xan-bh-zTN" firstAttribute="top" secondItem="cqs-fS-45y" secondAttribute="bottom" constant="3" id="hZG-7L-8Qw"/>
+                                                                <constraint firstItem="xan-bh-zTN" firstAttribute="leading" secondItem="Pgj-Am-c5N" secondAttribute="trailing" constant="10" id="l2x-dQ-7pC"/>
+                                                                <constraint firstItem="A10-Ew-nj8" firstAttribute="top" secondItem="vFY-h5-YBa" secondAttribute="top" constant="10" id="vi8-Cg-WCf"/>
+                                                                <constraint firstItem="cqs-fS-45y" firstAttribute="top" secondItem="A10-Ew-nj8" secondAttribute="bottom" constant="3" id="wAl-Hn-WDj"/>
                                                                 <constraint firstItem="Pgj-Am-c5N" firstAttribute="top" secondItem="vFY-h5-YBa" secondAttribute="top" constant="10" id="y3S-7o-4ks"/>
                                                             </constraints>
                                                             <connections>
+                                                                <outlet property="avatarImageView" destination="Pgj-Am-c5N" id="jZ0-HZ-UIp"/>
+                                                                <outlet property="folkLabel" destination="xan-bh-zTN" id="onO-kb-JXK"/>
+                                                                <outlet property="nameLabel" destination="A10-Ew-nj8" id="28S-EF-bnw"/>
+                                                                <outlet property="starLabel" destination="cqs-fS-45y" id="bhi-Y0-hpO"/>
                                                                 <outlet property="textField" destination="A10-Ew-nj8" id="zM6-3d-qN1"/>
                                                             </connections>
                                                         </tableCellView>
@@ -797,7 +823,7 @@
                 </viewController>
                 <customObject id="zMU-Vb-Xtl" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-208" y="1225.5"/>
+            <point key="canvasLocation" x="-236" y="1135.5"/>
         </scene>
     </scenes>
 </document>

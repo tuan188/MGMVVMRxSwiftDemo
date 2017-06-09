@@ -11,6 +11,7 @@
 		5A69A028A5743FCD3A5A463C /* Pods_AppAbstract_macOS.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D36CCF17F75B5095BF02F3B7 /* Pods_AppAbstract_macOS.framework */; };
 		9790A54020E90D3CD13A866F /* Pods_AppAbstract_MVC.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAA4F1479F18BE2AD4E07ACC /* Pods_AppAbstract_MVC.framework */; };
 		BC276F121EDBAAB0007B1375 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC276F111EDBAAB0007B1375 /* Assets.xcassets */; };
+		BC3334CC1EEA79AE00EDEF7E /* RepoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC3334CB1EEA79AE00EDEF7E /* RepoCell.swift */; };
 		BC359C981EEA346A00F2F181 /* RepoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC359C971EEA346A00F2F181 /* RepoListViewController.swift */; };
 		BC359C9B1EEA347800F2F181 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC359C991EEA347800F2F181 /* EventListViewController.swift */; };
 		BC359C9E1EEA555E00F2F181 /* Navigator.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC359C9D1EEA555E00F2F181 /* Navigator.swift */; };
@@ -43,6 +44,9 @@
 		BCABC3A71EE7D95B00AF5B55 /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCABC3A91EE7D95B00AF5B55 /* RepoService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BC49DE751EE551E900BF7616 /* RepoService.swift */; };
 		BCABC3B01EE7D95B00AF5B55 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BC276F111EDBAAB0007B1375 /* Assets.xcassets */; };
+		BCB03AAF1EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
+		BCB03AB01EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
+		BCB03AB11EEA7E0F0001F1B7 /* TableView+.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */; };
 		BCBCCC371EE3C86800E3BD7A /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC361EE3C86800E3BD7A /* APIService.swift */; };
 		BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */; };
@@ -100,6 +104,7 @@
 		BC276F111EDBAAB0007B1375 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		BC276F161EDBAAB0007B1375 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
 		BC276F1C1EDBABEC007B1375 /* MyPlayground.playground */ = {isa = PBXFileReference; lastKnownFileType = file.playground; path = MyPlayground.playground; sourceTree = "<group>"; };
+		BC3334CB1EEA79AE00EDEF7E /* RepoCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoCell.swift; sourceTree = "<group>"; };
 		BC359C971EEA346A00F2F181 /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
 		BC359C991EEA347800F2F181 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		BC359C9D1EEA555E00F2F181 /* Navigator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Navigator.swift; sourceTree = "<group>"; };
@@ -111,6 +116,7 @@
 		BCABC3781EE699EE00AF5B55 /* APIExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIExtensions.swift; sourceTree = "<group>"; };
 		BCABC3B71EE7D95B00AF5B55 /* MVVM.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MVVM.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BCABC3B81EE7D95B00AF5B55 /* MVVM.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = MVVM.plist; path = /Users/tuantruong/Documents/Git/MGMVVMRxSwiftDemo/MVVM.plist; sourceTree = "<absolute>"; };
+		BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "TableView+.swift"; sourceTree = "<group>"; };
 		BCBCCC361EE3C86800E3BD7A /* APIService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
 		BCBCCC391EE3D02700E3BD7A /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
@@ -256,6 +262,7 @@
 			isa = PBXGroup;
 			children = (
 				BC359C971EEA346A00F2F181 /* RepoListViewController.swift */,
+				BC3334CB1EEA79AE00EDEF7E /* RepoCell.swift */,
 			);
 			path = RepoList;
 			sourceTree = "<group>";
@@ -420,6 +427,7 @@
 			isa = PBXGroup;
 			children = (
 				BCFFE9331EE928E500D9BA76 /* Storyboard+.swift */,
+				BCB03AAE1EEA7E0F0001F1B7 /* TableView+.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -730,6 +738,7 @@
 				BC49DE7B1EE5526500BF7616 /* Event.swift in Sources */,
 				BCFFE9341EE928E500D9BA76 /* Storyboard+.swift in Sources */,
 				BCFFE9311EE923C600D9BA76 /* SwinjectStoryboard.swift in Sources */,
+				BCB03AAF1EEA7E0F0001F1B7 /* TableView+.swift in Sources */,
 				BCABC3791EE699EE00AF5B55 /* APIExtensions.swift in Sources */,
 				BCFFE91F1EE9000D00D9BA76 /* RepoCell.swift in Sources */,
 				BCFFE9191EE9000D00D9BA76 /* EventCell.swift in Sources */,
@@ -763,6 +772,7 @@
 				BCABC3A11EE7D95B00AF5B55 /* RepoList.swift in Sources */,
 				BCFFE92E1EE9236200D9BA76 /* SwinjectStoryboard.swift in Sources */,
 				BCABC3A21EE7D95B00AF5B55 /* APIInput.swift in Sources */,
+				BCB03AB01EEA7E0F0001F1B7 /* TableView+.swift in Sources */,
 				BCABC3A61EE7D95B00AF5B55 /* APIOutput.swift in Sources */,
 				BCFFE90D1EE8FF7100D9BA76 /* RepoListViewController.swift in Sources */,
 				BCFFE91A1EE9000D00D9BA76 /* EventCell.swift in Sources */,
@@ -781,11 +791,13 @@
 				BC359CA41EEA579700F2F181 /* Storyboard+.swift in Sources */,
 				BC359CA91EEA57DA00F2F181 /* URLs.swift in Sources */,
 				BC359CA81EEA57DA00F2F181 /* APIOutput.swift in Sources */,
+				BC3334CC1EEA79AE00EDEF7E /* RepoCell.swift in Sources */,
 				BC359C9F1EEA55A100F2F181 /* Repo.swift in Sources */,
 				BC359CA21EEA571800F2F181 /* RepoListViewModel.swift in Sources */,
 				BC359CAA1EEA57DD00F2F181 /* RepoList.swift in Sources */,
 				BC359CAB1EEA57DD00F2F181 /* EventList.swift in Sources */,
 				BC359CA61EEA57DA00F2F181 /* APIExtensions.swift in Sources */,
+				BCB03AB11EEA7E0F0001F1B7 /* TableView+.swift in Sources */,
 				BC359C9B1EEA347800F2F181 /* EventListViewController.swift in Sources */,
 				BC359CA71EEA57DA00F2F181 /* APIInput.swift in Sources */,
 				BC359CA51EEA57DA00F2F181 /* APIService.swift in Sources */,
