@@ -17,7 +17,7 @@ class EventListViewController: UIViewController {
     var repoService: RepoServiceProtocol!
     let bag = DisposeBag()
     
-    private var eventList = Variable<[Event]>([])
+    fileprivate var eventList = Variable<[Event]>([])
     var repo: Variable<Repo>!
     
     override func viewDidLoad() {
@@ -25,16 +25,13 @@ class EventListViewController: UIViewController {
         
         tableView.register(UINib(nibName: EventCell.cellIdentifier, bundle: nil),
                            forCellReuseIdentifier: EventCell.cellIdentifier)
-        tableView.rowHeight = 42
         
-        eventList
-            .asObservable()
-            .bind(to: tableView.rx.items) { [weak self] tableView, index, event in
-                let indexPath = IndexPath(item: index, section: 0)
-                let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.cellIdentifier, for: indexPath)
-                self?.config(cell, at: indexPath)
-                return cell
-            }
+        eventList.asObservable()
+            .subscribe(onNext: { [weak self] _ in
+                self?.tableView.reloadData()
+            }, onError: { (error) in
+                print(error)
+            })
             .disposed(by: bag)
         
         repo
@@ -59,10 +56,32 @@ class EventListViewController: UIViewController {
             .disposed(by: bag)
     }
     
+    
+}
+
+// MARK: - UITableViewDataSource
+extension EventListViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return eventList.value.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: EventCell.cellIdentifier, for: indexPath)
+        config(cell, at: indexPath)
+        return cell
+    }
+    
     private func config(_ cell: UITableViewCell, at indexPath: IndexPath) {
         if let cell = cell as? EventCell {
             cell.event = eventList.value[indexPath.row]
         }
     }
     
+}
+
+// MARK: - UITableViewDelegate
+extension EventListViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 42
+    }
 }
