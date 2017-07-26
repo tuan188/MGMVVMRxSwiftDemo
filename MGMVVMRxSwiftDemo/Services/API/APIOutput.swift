@@ -6,6 +6,19 @@
 //  Copyright © 2017 Tuan Truong. All rights reserved.
 //
 
-class APIOutput {
+import ObjectMapper
+import Alamofire
 
+class APIOutputBase: Mappable {
+    init() {
+        
+    }
+    
+    required init?(map: Map) {
+        
+    }
+    
+    func mapping(map: Map) {
+        
+    }
 }

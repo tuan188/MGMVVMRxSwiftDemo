@@ -6,19 +6,12 @@
 //  Copyright © 2017 Tuan Truong. All rights reserved.
 //
 
-enum HTTPMethod: String {
-    case get = "GET"
-    case post = "POST"
-    case delete = "DELETE"
-}
+import Foundation
+import ObjectMapper
+import Alamofire
 
-enum ParameterEncoding {
-    case url
-    case json
-}
-
-class APIInput {
-    let headers = [
+class APIInputBase {
+    var headers = [
         "Content-Type":"application/json; charset=utf-8",
         "Accept":"application/json"
     ]
@@ -26,11 +19,13 @@ class APIInput {
     let requestType: HTTPMethod
     var encoding: ParameterEncoding
     let parameters: [String: Any]?
+    let requireAccessToken: Bool
     
-    init(urlString: String, parameters: [String: Any]?, requestType: HTTPMethod) {
+    init(urlString: String, parameters: [String: Any]?, requestType: HTTPMethod, requireAccessToken: Bool = true) {
         self.urlString = urlString
         self.parameters = parameters
         self.requestType = requestType
-        self.encoding = requestType == .get ? .url : .json
+        self.encoding = requestType == .get ? URLEncoding.default : JSONEncoding.default
+        self.requireAccessToken = requireAccessToken
     }
 }

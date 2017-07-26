@@ -55,6 +55,9 @@
 		BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC391EE3D02700E3BD7A /* Repo.swift */; };
 		BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */; };
 		BCBCCC421EE4ED0E00E3BD7A /* APIOutput.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC411EE4ED0E00E3BD7A /* APIOutput.swift */; };
+		BCF0A03C1F288B4B002C83FF /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0A03B1F288B4B002C83FF /* ResponseError.swift */; };
+		BCF0A03D1F288BCA002C83FF /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0A03B1F288B4B002C83FF /* ResponseError.swift */; };
+		BCF0A03E1F288BCB002C83FF /* ResponseError.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCF0A03B1F288B4B002C83FF /* ResponseError.swift */; };
 		BCFFE8DE1EE7E37C00D9BA76 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCBCCC361EE3C86800E3BD7A /* APIService.swift */; };
 		BCFFE8FA1EE8FF7100D9BA76 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = BCFFE8E31EE8FF7100D9BA76 /* Main.storyboard */; };
 		BCFFE9001EE8FF7100D9BA76 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = BCFFE8E81EE8FF7100D9BA76 /* EventListViewController.swift */; };
@@ -143,6 +146,7 @@
 		BCBCCC391EE3D02700E3BD7A /* Repo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Repo.swift; sourceTree = "<group>"; };
 		BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIInput.swift; sourceTree = "<group>"; };
 		BCBCCC411EE4ED0E00E3BD7A /* APIOutput.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APIOutput.swift; sourceTree = "<group>"; };
+		BCF0A03B1F288B4B002C83FF /* ResponseError.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResponseError.swift; sourceTree = "<group>"; };
 		BCFFE8E31EE8FF7100D9BA76 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		BCFFE8E81EE8FF7100D9BA76 /* EventListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		BCFFE8EC1EE8FF7100D9BA76 /* RepoListViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepoListViewController.swift; sourceTree = "<group>"; };
@@ -348,6 +352,7 @@
 				BCBCCC3F1EE4ED0600E3BD7A /* APIInput.swift */,
 				BCBCCC411EE4ED0E00E3BD7A /* APIOutput.swift */,
 				BCABC3761EE68E9100AF5B55 /* URLs.swift */,
+				BCF0A03B1F288B4B002C83FF /* ResponseError.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -874,6 +879,7 @@
 				BCBCCC401EE4ED0600E3BD7A /* APIInput.swift in Sources */,
 				BCFFE9121EE8FF9500D9BA76 /* AppDelegate.swift in Sources */,
 				BCBCCC421EE4ED0E00E3BD7A /* APIOutput.swift in Sources */,
+				BCF0A03C1F288B4B002C83FF /* ResponseError.swift in Sources */,
 				BCBCCC3A1EE3D02700E3BD7A /* Repo.swift in Sources */,
 				BCFFE9001EE8FF7100D9BA76 /* EventListViewController.swift in Sources */,
 				BC49DE771EE551E900BF7616 /* RepoService.swift in Sources */,
@@ -889,6 +895,7 @@
 				BCABC39D1EE7D95B00AF5B55 /* Event.swift in Sources */,
 				BCFFE9351EE928E500D9BA76 /* Storyboard+.swift in Sources */,
 				BCABC39E1EE7D95B00AF5B55 /* APIExtensions.swift in Sources */,
+				BCF0A03D1F288BCA002C83FF /* ResponseError.swift in Sources */,
 				BCFFE90B1EE8FF7100D9BA76 /* EventListViewController.swift in Sources */,
 				BCABC39F1EE7D95B00AF5B55 /* URLs.swift in Sources */,
 				BCFFE90F1EE8FF7100D9BA76 /* RepoListViewModel.swift in Sources */,
@@ -927,6 +934,7 @@
 				BC359CA91EEA57DA00F2F181 /* URLs.swift in Sources */,
 				BC359CA81EEA57DA00F2F181 /* APIOutput.swift in Sources */,
 				BC3334CC1EEA79AE00EDEF7E /* RepoCell.swift in Sources */,
+				BCF0A03E1F288BCB002C83FF /* ResponseError.swift in Sources */,
 				BC359C9F1EEA55A100F2F181 /* Repo.swift in Sources */,
 				BC359CA21EEA571800F2F181 /* RepoListViewModel.swift in Sources */,
 				BC359CAA1EEA57DD00F2F181 /* RepoList.swift in Sources */,

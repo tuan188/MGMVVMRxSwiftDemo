@@ -9,6 +9,8 @@
 import RxSwift
 import ObjectMapper
 import RxCocoa
+import Alamofire
+import RxAlamofire
 
 enum APIError: Error {
     case invalidURL(url: String)
@@ -18,40 +20,69 @@ enum APIError: Error {
 
 class APIService {
     
-    private func _request(_ input: APIInput) -> Observable<Any> {
-        return Observable
-            .just(input.urlString)
-            .map { (urlString) -> URL in
-                if var url = URL(string: urlString) {
-                    if input.encoding == .url,
-                    let parameters = input.parameters as? [String:String]  {
-                        url = url.appendingQueryParameters(parameters)
-                    }
-                    return url
-                }
-                throw APIError.invalidURL(url: urlString)
+    private func _request(_ input: APIInputBase) -> Observable<Any> {
+        let manager = Alamofire.SessionManager.default
+        
+        return manager.rx
+            .request(input.requestType,
+                     input.urlString,
+                     parameters: input.parameters,
+                     encoding: input.encoding,
+                     headers: input.headers)
+            .flatMap { dataRequest -> Observable<DataResponse<Any>> in
+                dataRequest
+                    .rx.responseJSON()
             }
-            .map { (url) -> URLRequest in
-                return URLRequest(url: url)
-            }
-            .flatMap { (request) -> Observable<(HTTPURLResponse, Data)> in
-                return URLSession.shared.rx.response(request: request)
-            }
-            .filter { (response, data) -> Bool in
-                if 200..<300 ~= response.statusCode {
-                    return true
-                }
-                throw APIError.error(responseCode: response.statusCode, data: data)
-            }
-            .map { _, data -> Any in
-                if let jsonObject = try? JSONSerialization.jsonObject(with: data, options: []) {
-                    return jsonObject
-                }
-                throw APIError.invalidResponseData(data: data)
+            .map { (dataResponse) -> Any in
+                return try self.process(dataResponse)
             }
     }
     
-    func request<T: Mappable>(_ input: APIInput) -> Observable<T> {
+    private func process(_ response: DataResponse<Any>) throws -> Any {
+        let error: Error
+        switch response.result {
+        case .success(let value):
+            if let statusCode = response.response?.statusCode {
+                switch statusCode {
+                case 200:
+                    return value
+                case 304:
+                    error = ResponseError.notModified
+                case 400:
+                    error = ResponseError.invalidRequest
+                case 401:
+                    error = ResponseError.unauthorized
+                case 403:
+                    error = ResponseError.accessDenied
+                case 404:
+                    error = ResponseError.notFound
+                case 405:
+                    error = ResponseError.methodNotAllowed
+                case 422:
+                    error = ResponseError.validate
+                case 500:
+                    error = ResponseError.serverError
+                case 502:
+                    error = ResponseError.badGateway
+                case 503:
+                    error = ResponseError.serviceUnavailable
+                case 504:
+                    error = ResponseError.gatewayTimeout
+                default:
+                    error = ResponseError.unknown(statusCode: statusCode)
+                }
+            }
+            else {
+                error = ResponseError.noStatusCode
+            }
+            print(value)
+        case .failure(let e):
+            error = e
+        }
+        throw error
+    }
+    
+    func request<T: Mappable>(_ input: APIInputBase) -> Observable<T> {
         return _request(input)
             .map { data -> T in
                 if let json = data as? [String:Any],
@@ -63,7 +94,7 @@ class APIService {
             }
     }
     
-    func requestArray<T: Mappable>(_ input: APIInput) -> Observable<[T]> {
+    func requestArray<T: Mappable>(_ input: APIInputBase) -> Observable<[T]> {
         return _request(input)
             .map { data -> [T] in
                 if let jsonArray = data as? [[String:Any]] {

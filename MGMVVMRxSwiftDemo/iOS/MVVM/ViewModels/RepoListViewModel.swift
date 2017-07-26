@@ -19,8 +19,9 @@ class RepoListViewModel {
     
     // MARK: - Output
     private(set) var repoList: Variable<[Repo]>
-    private(set) var loadDataAction: Action<String, [Repo]>!
     private(set) var isLoadingData = Variable(false)
+    
+    private(set) var loadDataAction: Action<String, [Repo]>!
     
     init(repoService: RepoServiceProtocol) {
         self.repoService = repoService

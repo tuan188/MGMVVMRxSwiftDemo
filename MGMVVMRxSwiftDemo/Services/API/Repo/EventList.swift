@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class EventListInput: APIInput {
+class EventListInput: APIInputBase {
     init(repoFullName: String) {
         super.init(urlString: String(format: URLs.eventList, repoFullName),
                    parameters: nil,
@@ -16,10 +16,15 @@ class EventListInput: APIInput {
     }
 }
 
-class EventListOutput: APIOutput {
-    let events: [Event]
+class EventListOutput: APIOutputBase {
+    var events = [Event]()
     
     init(events: [Event]) {
         self.events = events
+        super.init()
+    }
+    
+    required init?(map: Map) {
+        super.init(map: map)
     }
 }

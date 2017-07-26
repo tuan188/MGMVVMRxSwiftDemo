@@ -8,7 +8,7 @@
 
 import ObjectMapper
 
-class RepoListInput: APIInput {
+class RepoListInput: APIInputBase {
     init() {
         super.init(urlString: URLs.repoList,
                    parameters: nil,
@@ -16,19 +16,21 @@ class RepoListInput: APIInput {
     }
 }
 
-class RepoListOutput: APIOutput, Mappable {
+class RepoListOutput: APIOutputBase {
     
     var repositories: [Repo]?
     
     override init() {
-        
+        super.init()
     }
     
     required init?(map: Map) {
-        
+        super.init(map: map)
     }
     
-    func mapping(map: Map) {
+    override func mapping(map: Map) {
+        super.mapping(map: map)
+        
         repositories <- map["items"]
     }
 }

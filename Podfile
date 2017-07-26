@@ -6,6 +6,8 @@ abstract_target 'AppAbstract' do
     pod 'Action'
     pod 'ObjectMapper', '~> 2.2'
     pod 'Kingfisher', '~> 3.10'
+    pod 'Alamofire', '~> 4.5'
+    pod 'RxAlamofire', '~> 3.0.3'
     
     target 'MVC' do
         platform :ios, '10.3'

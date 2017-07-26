@@ -2,8 +2,14 @@ PODS:
   - Action (3.1.1):
     - RxCocoa (~> 3.4)
     - RxSwift (~> 3.4)
+  - Alamofire (4.5.0)
   - Kingfisher (3.10.1)
   - ObjectMapper (2.2.7)
+  - RxAlamofire (3.0.3):
+    - RxAlamofire/Core (= 3.0.3)
+  - RxAlamofire/Core (3.0.3):
+    - Alamofire (~> 4.0)
+    - RxSwift (~> 3.0)
   - RxCocoa (3.5.0):
     - RxSwift (~> 3.4)
   - RxSwift (3.5.0)
@@ -15,8 +21,10 @@ PODS:
 
 DEPENDENCIES:
   - Action
+  - Alamofire (~> 4.5)
   - Kingfisher (~> 3.10)
   - ObjectMapper (~> 2.2)
+  - RxAlamofire (~> 3.0.3)
   - RxCocoa (~> 3.5)
   - RxSwift (~> 3.5)
   - RxTest
@@ -25,14 +33,16 @@ DEPENDENCIES:
 
 SPEC CHECKSUMS:
   Action: e224bd151fe2e057f4189b4a9df0dc5d21264a9e
+  Alamofire: f28cdffd29de33a7bfa022cbd63ae95a27fae140
   Kingfisher: 33a1b82140fcb14a9fc13f78dfde2a03ff8de8cb
   ObjectMapper: 65abcfd9a61cf7396cbd14a4fb22fddfcc46577e
+  RxAlamofire: 5eb39188c4917ad98127c0ecb4878a61b7517003
   RxCocoa: a0a09f45d0e5b48ecb6a4a7b4b4c89c88d3f633f
   RxSwift: 18ee9d78b45edb3b0b7e79916b47a116e6dbc842
   RxTest: 1763765fd0e2282b0eb44c9050effdd7fe7156d4
   Swinject: 2e964a80d70ab09b3949c99032711f89147bfd60
   SwinjectStoryboard: 8e0d3c0202b64172bdf915d55e8dc83d9c4e7863
 
-PODFILE CHECKSUM: bd16289d895c1c4196f6c8bcd137ce83872035b7
+PODFILE CHECKSUM: 91d7626515b81f89f316559057d776c17573481c
 
 COCOAPODS: 1.2.1
